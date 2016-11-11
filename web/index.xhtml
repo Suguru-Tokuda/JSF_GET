@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h3>Direction: Change the URL such that you have the query string parameters (http://localhost:8080/GETinJSFv2/faces/index.xhtml?txtUsername=aaa&amp;txtPassword=bbb ...)</h3>
+        <h3>Also, watch the GlassFish console for the query string parameters. </h3>
+
+<!--    Use of "param" allows one to get to the query string (part that is after ?) -->
+        <p>Username: #{param.txtUsername}</p>
+        <p>Password: #{param.txtPassword}</p>
+        <h1>You have successfully registered with the username #{param.txtUsername}</h1>
+        <f:metadata>
+            <f:viewParam name="txtUsername" value="#{login.username}" required="true" />
+            <f:viewParam name="txtPassword" value="#{login.password}" required="true" />
+            <f:event type="preRenderView" listener="#{login.init}" />
+        </f:metadata>
+        <p/>
+
+    </h:body>
+</html>
+
